@@ -15,6 +15,7 @@ import { LoginComponent } from './Customer Portal/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginGuard } from './guards/login.guard';
 
+
 const routes: Routes = [
   {path: '', component: LoginComponent ,canActivate: [LoginGuard]},
   {path: 'inquirydata', component: InquirydataComponent , canActivate: [AuthGuard], data: {breadcrumb : 'Inquiry Data'}},
