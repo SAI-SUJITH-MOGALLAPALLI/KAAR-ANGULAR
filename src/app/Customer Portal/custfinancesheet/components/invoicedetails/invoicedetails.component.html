@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="bg-dark sidebar-sticky" >
+          <ul class="nav flex-column">
+            <!-- <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <span data-feather="dashboard"></span>
+                Dashboard <span class="sr-only">(current)</span>
+              </a>
+            </li> -->
+            <h6>
+              <li class="nav-item">
+                <div class="dropdown">
+                  <button class="bg-dark dropbtn"><i class="fa fa-user fa-2x"></i> &nbsp;Customer Profile</button>
+                  <div class="dropdown-content">
+                    <a class="nav-link" routerLink="/custprofiledetail"><i class="fa fa-user-circle-o"></i> Profile Detail</a>
+                    <a class="nav-link" routerLink="/custprofileedit"><i class="fa fa-edit"></i> Profile Edit</a>
+                  </div>
+                </div>
+            </li>
+           </h6>
+            <h6>
+                <li class="nav-item">
+                  <div class="dropdown">
+                    <button class="bg-dark dropbtn"><i class="fa fa-home fa-2x"></i> &nbsp;Customer Dashboard</button>
+                    <div class="dropdown-content">
+                      <a class="nav-link" routerLink="/inquirydata"><i class="fa fa-address-book"></i> Inquiry Data</a>
+                      <a class="nav-link" routerLink="/saleorderdata"><i class="fa fa-desktop"></i> Sale Order Data</a>
+                      <a class="nav-link" routerLink="/listofdelivery"><i class="fa fa-list"></i> List Of Delivery</a>
+                    </div>
+                  </div>
+              </li>
+            </h6>
+            <h6>
+              <li class="nav-item">
+                <div class="dropdown">
+                  <button class="bg-dark dropbtn" ><i class="fa fa-cogs fa-2x"></i> &nbsp;Customer Finance Sheet</button>
+                  <div class="dropdown-content">
+                    <a class="nav-link" routerLink="/invoicedetails"><i class="fa fa-envelope"></i> Invoice Details</a>
+                    <a class="nav-link" routerLink="/paymentsaging"><i class="fa fa-paypal"></i> Payments and Aging</a>
+                    <a class="nav-link" routerLink="/creditdebitdemo"><i class="fa fa-credit-card"></i> Credit/Debit memo</a>
+                    <a class="nav-link" routerLink="/overallsalesdata"><i class="fa fa-sticky-note"></i> Overall Sales Data</a>
+                  </div>
+                </div>
+            </li>
+          </h6>
+          <h6>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="bg-dark dropbtn" ><i class="fa fa-upload fa-2x"></i> &nbsp;Master Data Upload</button>
+                <div class="dropdown-content">
+                  <a class="nav-link" routerLink="/masterdataupload"><i class="fa fa-upload"></i> Data Upload</a>
+                </div>
+              </div>
+          </li>
+        </h6>
+          </ul>
+        </div>
+      </nav>
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-5">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <!-- <h1 class="h2">Dashboard</h1> -->
+          <breadcrumb #parent> 
+            <ol class="breadcrumb">
+              <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+                <li *ngIf="!route.terminal" class="breadcrumb-item">
+                  <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+                </li>
+                <li style="font-size: large; font-weight: 600;" *ngIf="route.terminal" class="breadcrumb-item active"><a style="text-decoration: none;" href="" [routerLink]="[route.url]">{{ route.displayName }}</a></li>
+              </ng-template>
+            </ol>
+          </breadcrumb>
+        </div>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-0 border-bottom">
+            <iframe controls autoplay width="650" height="350"  allowfullscreen style="border-width: 10px; border-color: rgb(93, 93, 95); border-radius: 10px; margin-top:0% ; margin-left: 20%;overflow: hidden;" src="https://www.youtube.com/embed/HwGqLwNdtmc">
+            </iframe>
+            <!-- <iframe width="920" height="535"  allowfullscreen style="margin-top:8% ; margin-left: 25%;overflow: hidden;" src="https://r3---sn-h557sns7.c.drive.google.com/videoplayback?expire=1620226856&ei=6HqSYKqJHI2LuQWa3JWQAQ&ip=59.96.180.240&cp=QVRHUkNfVVhTR1hPOjNhQkdOczBhY1FGc2dSV3JLRkluZ0c2M1E5dlRYdTlyRC1ibjNkajBWQXU&id=8b2204387936e551&itag=18&source=webdrive&requiressl=yes&mh=gv&mm=32&mn=sn-h557sns7&ms=su&mv=u&mvi=3&pl=21&ttl=transient&susc=dr&driveid=1JyPOHzvP3nn8L-QvYIh7Y6a607iJTE1Z&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=91.997&lmt=1620212093825883&mt=1620211773&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRgIhAKqYzxnHU5LRUwcqzd7u1pVhzpSlHPRvIz1dIUxxaDKEAiEAqQlH2X3RbFHHGL5qfcOsDtYtlti406mmkH7p2xCgBLA=&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRAIgEJfs4nCt57qFjG01XhpqfaRxMemoS6ZV4h6ptHnOkLACIE5nJVPvqJ60EhlfqYKg1kt2GH1qSvH632ns9tkKQLxU&cpn=vW5M6UpGTW4lBkD7&c=WEB_EMBEDDED_PLAYER&cver=1.20210502.0.0">
+            </iframe> -->
+        </div>
+      </main>
+    </div>
+  </div>

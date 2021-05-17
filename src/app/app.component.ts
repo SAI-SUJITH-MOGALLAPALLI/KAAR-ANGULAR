@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './service/authentication/authentication.service';
+import { LoaderService } from './service/authentication/loader/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular';
+  title = 'Customer Portal';
+  constructor(public authenticationService: AuthenticationService,public loaderService:LoaderService) { }
+
+  logout() {
+    // console.log(this.authenticationService.login);
+    this.authenticationService.logout();
+  }
+  
 }
