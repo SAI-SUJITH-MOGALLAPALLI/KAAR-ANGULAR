@@ -14,6 +14,16 @@ import { DashboardComponent } from './Customer Portal/dashboard/dashboard.compon
 import { LoginComponent } from './Customer Portal/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginGuard } from './guards/login.guard';
+import { VendorGoodsReceiptComponent } from './Vendor Portal/Vendor-dashboard/vendor-goods-receipt/vendor-goods-receipt.component';
+import { VendorPurchaseOrderComponent } from './Vendor Portal/Vendor-dashboard/vendor-purchase-order/vendor-purchase-order.component';
+import { VendorQuotationComponent } from './Vendor Portal/Vendor-dashboard/vendor-quotation/vendor-quotation.component';
+import { VendorCreditComponent } from './Vendor Portal/Vendor-Finance-Sheet/vendor-credit/vendor-credit.component';
+import { VendorDebitComponent } from './Vendor Portal/Vendor-Finance-Sheet/vendor-debit/vendor-debit.component';
+import { VendorInvoiceDetailsComponent } from './Vendor Portal/Vendor-Finance-Sheet/vendor-invoice-details/vendor-invoice-details.component';
+import { VendorPaymentAgingComponent } from './Vendor Portal/Vendor-Finance-Sheet/vendor-payment-aging/vendor-payment-aging.component';
+import { VendorLoginComponent } from './Vendor Portal/Vendor-login/vendor-login.component';
+import { VendorProfileDetailComponent } from './Vendor Portal/Vendor-profile/vendor-profile-detail/vendor-profile-detail.component';
+import { VendorProfileEditComponent } from './Vendor Portal/Vendor-profile/vendor-profile-edit/vendor-profile-edit.component';
 
 
 const routes: Routes = [
@@ -28,7 +38,17 @@ const routes: Routes = [
   {path: 'saleorderdata', component: SalesorderdataComponent, canActivate: [AuthGuard], data: {breadcrumb : 'Sales order data'}},
   {path: 'creditdebitdemo', component: CreditdebitmemoComponent, canActivate: [AuthGuard], data: {breadcrumb : 'Credit Debit Memo'}},
   {path: 'masterdataupload', component: MasterdatauploadComponent,  canActivate: [AuthGuard], data: {breadcrumb : 'Master data Upload'}},
-  {path: 'overallsalesdata', component: OverallsalesdataComponent,  canActivate: [AuthGuard], data: {breadcrumb : 'Overall Sales Data'}}
+  {path: 'overallsalesdata', component: OverallsalesdataComponent,  canActivate: [AuthGuard], data: {breadcrumb : 'Overall Sales Data'}},
+  {path: 'vendorlogin', component: VendorLoginComponent},
+  {path: 'vendorprofiledetail', component: VendorProfileDetailComponent},
+  {path: 'vendorprofileedit', component: VendorProfileEditComponent},
+  {path: 'vendorgoodsreceipt', component: VendorGoodsReceiptComponent},
+  {path: 'vendorpurchaseorder', component: VendorPurchaseOrderComponent},
+  {path: 'vendorquotation', component: VendorQuotationComponent},
+  {path: 'vendorcredit', component: VendorCreditComponent},
+  {path: 'vendordebit', component: VendorDebitComponent},
+  {path: 'vendorinvoice', component: VendorInvoiceDetailsComponent},
+  {path: 'vendorpaymentaging', component: VendorPaymentAgingComponent}
 ];
 
 @NgModule({
