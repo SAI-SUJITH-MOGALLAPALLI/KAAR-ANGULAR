@@ -26,6 +26,7 @@ import { VendorProfileDetailComponent } from './Vendor Portal/Vendor-profile/ven
 import { VendorProfileEditComponent } from './Vendor Portal/Vendor-profile/vendor-profile-edit/vendor-profile-edit.component';
 
 
+
 const routes: Routes = [
   {path: '', component: LoginComponent ,canActivate: [LoginGuard]},
   {path: 'inquirydata', component: InquirydataComponent , canActivate: [AuthGuard], data: {breadcrumb : 'Inquiry Data'}},
