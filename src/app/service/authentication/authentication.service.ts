@@ -13,6 +13,46 @@ export class AuthenticationService {
   isAuthenticated = false;
   login=false;
   constructor(private http:HttpClient ,private router:Router) { }
+
+  authenticateVendor(signInData: SignInData): void{
+    this.checkCredentialsVendor(signInData);
+  }
+
+  checkCredentialVendor(signInData : SignInData){
+    if (signInData.ans) {
+      localStorage.setItem("uname",signInData.getLogin());
+      this.isAuthenticated = true;
+      this.login = true;
+      console.log(this.login);
+      this.router.navigate(['vendordashboard']);
+      return true;
+    }
+    this.isAuthenticated = false;
+    return false;
+  }
+
+  private checkCredentialsVendor(signInData: SignInData): void {  
+    this.http.post('http://localhost:3000/vendor-login',{uname:signInData.getLogin(),pwd:signInData.getPassword()}).subscribe((data)=>{
+      console.log(data);
+      this.name=data['SOAP:Envelope']['SOAP:Body']['ns0:Z_FM_VENDOR_LOGIN_SUJ.Response'].E_RETURN.CODE._text;
+      // this.name = signInData.getLogin();
+      if(this.name !='WRONG'){
+        this.name = signInData.getLogin();
+        sessionStorage.setItem('uname',signInData.getLogin());
+        localStorage.setItem('name',this.name);
+        signInData.ans=true;
+        // alert("Welcome " + this.name);
+        // this.router.navigate(['dashboard']);
+        this.checkCredentialVendor(signInData);
+      } 
+      else{
+        alert("Invalid User");
+        signInData.ans=false;
+        // this.checkCredential(signInData);
+      }
+    });
+  }
+
   authenticate(signInData: SignInData): void {
     this.checkCredentials(signInData);
   }

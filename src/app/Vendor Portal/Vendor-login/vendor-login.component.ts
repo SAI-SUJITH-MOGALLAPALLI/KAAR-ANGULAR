@@ -22,8 +22,8 @@ export class VendorLoginComponent implements OnInit {
   ngOnInit(): void {
     
   }
-  
     getresult(f) {
+      localStorage.setItem('portal',"vendor");
       if (!f.valid) {
         this.isFormValid = true;
         this.areCredentialsInvalid = false;
@@ -34,9 +34,8 @@ export class VendorLoginComponent implements OnInit {
   
     private checkCredentials(signInForm) {
       const signInData = new SignInData (signInForm.value.uname, signInForm.value.pwd);
-      this.authenticationService.authenticate(signInData);
+      this.authenticationService.authenticateVendor(signInData);
       if (!signInData.ans) {
-        // console.log("Check");
         this.isFormValid = false;
         this.areCredentialsInvalid = true;
       }

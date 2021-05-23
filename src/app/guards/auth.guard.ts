@@ -15,7 +15,10 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       
       if(localStorage.getItem("uname")==null){
+        if(localStorage.getItem("portal")=="customer")
         this.router.navigate([''])
+        else if(localStorage.getItem("portal")=="vendor")
+        this.router.navigate(['vendorlogin'])
         return false;
       }
       else{

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendorDebitComponent implements OnInit {
 
-  constructor() { }
+  uname;
+  debit;
+  constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
+    this.uname=sessionStorage.getItem('uname');
+    this.http.post('http://localhost:3000/vendor-debit',{uname:this.uname}).subscribe((data)=>{
+      console.log(data);
+      this.debit= data['SOAP:Envelope']['SOAP:Body']['ns0:Z_FM_VENDOR_DEBIT_SUJ.Response']['IT_DEBIT_T']['item'];
+      console.log(this.debit);
+    });
   }
 
 }

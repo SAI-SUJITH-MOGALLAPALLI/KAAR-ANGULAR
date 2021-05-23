@@ -38,6 +38,9 @@ import { VendorPaymentAgingComponent } from './Vendor Portal/Vendor-Finance-Shee
 import { VendorLoginComponent } from './Vendor Portal/Vendor-login/vendor-login.component';
 import { VendorProfileDetailComponent } from './Vendor Portal/Vendor-profile/vendor-profile-detail/vendor-profile-detail.component';
 import { VendorProfileEditComponent } from './Vendor Portal/Vendor-profile/vendor-profile-edit/vendor-profile-edit.component';
+import { DashboardvendorComponent } from './Vendor Portal/dashboardvendor/dashboardvendor.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+// import { VendorDashboardComponent } from './Vendor Portal/vendor-dashboard/vendor-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,9 @@ import { VendorProfileEditComponent } from './Vendor Portal/Vendor-profile/vendo
     VendorCreditComponent,
     VendorInvoiceDetailsComponent,
     VendorDebitComponent,
-    VendorPaymentAgingComponent
+    VendorPaymentAgingComponent,
+    DashboardvendorComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

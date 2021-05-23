@@ -1,1 +1,6 @@
-<p>vendor-invoice-details works!</p>
+<div style="margin-left: 30%;">
+    Invoice: <input  type="text" placeholder="Invoice" name="Invoice" [(ngModel)]="invoiceNumber"> <br> <br>
+       Year: <input  type="text" placeholder="Year" name="Year" [(ngModel)]="year"><br> <br>
+    <input type="submit" (click)="get_invoice()">
+</div>
+<iframe id="inv" ></iframe>

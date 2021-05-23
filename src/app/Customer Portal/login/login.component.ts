@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
   //   });
   
     getresult(f) {
+      localStorage.setItem('portal',"customer");
       if (!f.valid) {
         this.isFormValid = true;
         this.areCredentialsInvalid = false;

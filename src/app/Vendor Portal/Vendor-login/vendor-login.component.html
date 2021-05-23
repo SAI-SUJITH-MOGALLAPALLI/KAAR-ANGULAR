@@ -1,12 +1,3 @@
-<!-- <form #f="ngForm"(ngSubmit)="getresult(f)">
-    <h3>Username:</h3>
-    <input type="text" placeholder="Username" name="uname" ngModel #name="ngModel" ><br>
-    <h3>Password:</h3>
-    <input type="password" placeholder="Password" name="pwd" ngModel #pwd="ngModel"  >
-    <br>
-    <a ><input type="submit"  value="Login" class="button"/></a>
-    <br>
-</form> -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -26,33 +17,23 @@
 <body>
   <nav style="height: 50px;" class="navbar navbar-dark bg-red" >
     <img style="margin-left: 6%; top: 0%; position: absolute;" height="125px" width="125px" src="https://www.kaartech.com/wp-content/themes/kaar/images/logo.png">
-    <!-- <a style="background-color: lightgrey;
-    width: 200px;
-    border: 5px solid lightgray;
-    /* padding: 50px; */
-    font-weight: 600;
-    margin-left: 86%; color: black;" class="navbar-brand" routerLink="">Customer Portal</a> -->
   </nav>
-
   <div class="login-wrappper" style="margin-top: 4%;">
       <div class="card">
           <div class="card-body">
-            <!-- (ngSubmit)="onSubmit(signInForm)"#signInForm="ngForm" -->
-              
               <form class="form-signin" #f="ngForm"(ngSubmit)="getresult(f)">
-                  <!-- <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
                   <i style="color: aliceblue; align-items: center; margin-top: 0%; margin-left: 40%;" class="fa fa-user-circle fa-4x" aria-hidden="true"></i>
                   <br>
                   <h1 style="font-family: Georgia; margin-top: 5%; margin-left: 27%; color: rgb(255, 255, 255); font-weight: 600; " class="h3 mb-3 font-weight">Login Here</h1>
                   <table>
                     <tr>
                       <td>
-                        <h2 style="color: whitesmoke;"><i class="fa fa-user " aria-hidden="true"></i> Customer ID: </h2>
+                        <h2 style="color: whitesmoke;"><i class="fa fa-user " aria-hidden="true"></i> Vendor ID: </h2>
                       </td>
                       <td style="width: 50%;">
                         <label  for="inputEmail" class="sr-only">Vendor ID </label>
                         <input type="text" id="inputEmail" name="uname" class="form-control" 
-                        placeholder="Email address" required autofocus ngModel #name="ngModel">
+                        placeholder="Vendor ID" required autofocus ngModel #name="ngModel">
                       </td>
                     </tr>
                     <tr>
@@ -67,19 +48,8 @@
                       </td>
                     </tr>
                   </table>
-                  
-                  
-                  <!-- <div class="checkbox mb-3">
-                    <label>
-                      <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                  </div> -->
                   <button (click)="toggleLoading()" class="btn btn-lg btn-primary btn-block" type="submit">
-                    <!-- <img *ngIf="isLoading" src="C:\Study\Kaar Technologies\Portals\Customer Portal\Sujith - Customer Portal\Angular\src\app\login\spinner.gif"   /> -->
-
                     Login</button>
-                  <!-- <a ><input type="submit"  value="Login" class="button"/></a> -->
-                  <!-- <div style="margin-left: 45%; height: 20px; width: 20px; " *ngIf="isLoading" class="loader"></div> -->
                   <div class="alert alert-danger" role="alert" *ngIf="isFormValid">
                     Please fill all fields
                   </div>
@@ -87,13 +57,6 @@
                     <span class="spinner-border spinner-border-sm"></span>
                     Loading..
                   </button>
-                  <!-- <div *ngIf="toggleLoading()" > -->
-                    
-                  <!-- <div class="alert alert-danger" role="alert" *ngIf="areCredentialsInvalid">
-                    Invalid Username or password
-                  </div>  -->
-                  <!-- </div> -->
-                  <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p> -->
                 </form>
           </div>
       </div>

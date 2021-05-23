@@ -14,6 +14,9 @@ import { DashboardComponent } from './Customer Portal/dashboard/dashboard.compon
 import { LoginComponent } from './Customer Portal/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginGuard } from './guards/login.guard';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { DashboardvendorComponent } from './Vendor Portal/dashboardvendor/dashboardvendor.component';
+// import { VendorDashboardComponent } from './Vendor Portal/Vendor-dashboard/vendor-dashboard.component';
 import { VendorGoodsReceiptComponent } from './Vendor Portal/Vendor-dashboard/vendor-goods-receipt/vendor-goods-receipt.component';
 import { VendorPurchaseOrderComponent } from './Vendor Portal/Vendor-dashboard/vendor-purchase-order/vendor-purchase-order.component';
 import { VendorQuotationComponent } from './Vendor Portal/Vendor-dashboard/vendor-quotation/vendor-quotation.component';
@@ -28,7 +31,8 @@ import { VendorProfileEditComponent } from './Vendor Portal/Vendor-profile/vendo
 
 
 const routes: Routes = [
-  {path: '', component: LoginComponent ,canActivate: [LoginGuard]},
+  {path: '', component: LandingPageComponent },
+  // {path: '', component: LoginComponent ,canActivate: [LoginGuard]},
   {path: 'inquirydata', component: InquirydataComponent , canActivate: [AuthGuard], data: {breadcrumb : 'Inquiry Data'}},
   {path: 'dashboard', component: DashboardComponent , canActivate: [AuthGuard], data: {breadcrumb : 'Dashboard'}},
   {path: 'custprofiledetail', component: CustprofiledetailComponent , canActivate: [AuthGuard], data: {breadcrumb : 'Customer Profile Detail'}},
@@ -40,7 +44,8 @@ const routes: Routes = [
   {path: 'creditdebitdemo', component: CreditdebitmemoComponent, canActivate: [AuthGuard], data: {breadcrumb : 'Credit Debit Memo'}},
   {path: 'masterdataupload', component: MasterdatauploadComponent,  canActivate: [AuthGuard], data: {breadcrumb : 'Master data Upload'}},
   {path: 'overallsalesdata', component: OverallsalesdataComponent,  canActivate: [AuthGuard], data: {breadcrumb : 'Overall Sales Data'}},
-  {path: 'vendorlogin', component: VendorLoginComponent},
+  {path: 'vendorlogin', component: VendorLoginComponent,canActivate: [LoginGuard]},
+  {path: 'vendordashboard', component: DashboardvendorComponent , canActivate: [AuthGuard], data: {breadcrumb : 'Vendor Dashboard'}},
   {path: 'vendorprofiledetail', component: VendorProfileDetailComponent},
   {path: 'vendorprofileedit', component: VendorProfileEditComponent},
   {path: 'vendorgoodsreceipt', component: VendorGoodsReceiptComponent},

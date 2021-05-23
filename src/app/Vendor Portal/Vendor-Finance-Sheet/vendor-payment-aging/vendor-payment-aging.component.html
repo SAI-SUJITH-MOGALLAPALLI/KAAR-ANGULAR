@@ -1,1 +1,94 @@
-<p>vendor-payment-aging works!</p>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="bg-dark sidebar-sticky" >
+          <ul class="nav flex-column">
+            <h6>
+              <li class="nav-item">
+                <div class="dropdown">
+                  <button class="bg-dark dropbtn"><i class="fa fa-user fa-lg"></i> &nbsp;Vendor Profile</button>
+                  <div class="dropdown-content">
+                    <a class="nav-link" routerLink="/vendorprofiledetail"><i class="fa fa-user-circle-o"></i> Vendor Profile Detail</a>
+                    <a class="nav-link" routerLink="/vendorprofileedit"><i class="fa fa-edit"></i> Vendor Profile Edit</a>
+                  </div>
+                </div>
+            </li>
+           </h6>
+            <h6>
+                <li class="nav-item">
+                  <div class="dropdown">
+                    <button class="bg-dark dropbtn"><i class="fa fa-home fa-lg"></i> &nbsp;Vendor Dashboard</button>
+                    <div class="dropdown-content">
+                      <a class="nav-link" routerLink="/vendorquotation"><i class="fa fa-address-book"></i> Request for Quotation</a>
+                      <a class="nav-link" routerLink="/vendorpurchaseorder"><i class="fa fa-desktop"></i> Purchase Order</a>
+                      <a class="nav-link" routerLink="/vendorgoodsreceipt"><i class="fa fa-list"></i> Goods Receipt</a>
+                    </div>
+                  </div>
+              </li>
+            </h6>
+            
+            <h6>
+              <li class="nav-item">
+                <div class="dropdown">
+                  
+                  <button class="bg-dark dropbtn" ><i class="fa fa-cogs fa-lg"></i> &nbsp;Vendor Finance Sheet</button>
+                  <div class="dropdown-content">
+                    <a class="nav-link" routerLink="/vendorinvoice"><i class="fa fa-envelope"></i> Invoice Details</a>
+                    <a class="nav-link" routerLink="/vendorpaymentaging"><i class="fa fa-paypal"></i> Payments and Aging</a>
+                    <a class="nav-link" routerLink="/vendorcredit"><i class="fa fa-credit-card"></i> Credit memo</a>
+                    <a class="nav-link" routerLink="/vendordebit"><i class="fa fa-sticky-note"></i> Debit Memo</a>
+                  </div>
+                </div>
+            </li>
+          </h6>
+          </ul>
+        </div>
+      </nav>
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-5">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <breadcrumb #parent> 
+            <ol class="breadcrumb">
+              <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+                <li *ngIf="!route.terminal" class="breadcrumb-item">
+                  <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+                </li>
+                <li style="font-size: large; font-weight: 600;" *ngIf="route.terminal" class="breadcrumb-item active"><a style="text-decoration: none;" href="" [routerLink]="[route.url]">{{ route.displayName }}</a></li>
+              </ng-template>
+            </ol>
+          </breadcrumb>
+        </div>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <div class="tbh" *ngIf="payment_aging">
+                <table datatable class="row-border hover" id="example">
+                    <thead>
+                      <tr>
+                              <th>COMP_CODE</th>
+                              <th>VENDOR</th>
+                              <th>FISC_YEAR</th>
+                              <th>DOC_NO</th>
+                              <th>ITEM_NUM</th>
+                              <th>DOC_TYPE</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor = "let suj of payment_aging">
+                        <td>{{suj.COMP_CODE._text}}</td>
+                        <td>{{suj.VENDOR._text}}</td>
+                        <td>{{suj.FISC_YEAR._text}}</td>
+                        <td>{{suj.DOC_NO._text}}</td>
+                        <td>{{suj.ITEM_NUM._text}}</td>
+                        <td>{{suj.DOC_TYPE._text}}</td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      </main>
+    </div>
+  </div>

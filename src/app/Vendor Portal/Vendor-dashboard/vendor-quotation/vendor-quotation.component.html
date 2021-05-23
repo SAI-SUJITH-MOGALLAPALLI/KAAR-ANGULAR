@@ -9,19 +9,13 @@
       <nav class="col-md-2 d-none d-md-block bg-light sidebar">
         <div class="bg-dark sidebar-sticky" >
           <ul class="nav flex-column">
-            <!-- <li class="nav-item">
-              <a class="nav-link active" href="#">
-                <span data-feather="dashboard"></span>
-                Dashboard <span class="sr-only">(current)</span>
-              </a>
-            </li> -->
             <h6>
               <li class="nav-item">
                 <div class="dropdown">
-                  <button class="bg-dark dropbtn"><i class="fa fa-user fa-2x"></i> &nbsp; Vendor Profile</button>
+                  <button class="bg-dark dropbtn"><i class="fa fa-user fa-lg"></i> &nbsp;Vendor Profile</button>
                   <div class="dropdown-content">
-                    <a class="nav-link" routerLink="/custprofiledetail"><i class="fa fa-user-circle-o"></i> Vendor Profile Detail</a>
-                    <a class="nav-link" routerLink="/custprofileedit"><i class="fa fa-edit"></i> Vendor Profile Edit</a>
+                    <a class="nav-link" routerLink="/vendorprofiledetail"><i class="fa fa-user-circle-o"></i> Vendor Profile Detail</a>
+                    <a class="nav-link" routerLink="/vendorprofileedit"><i class="fa fa-edit"></i> Vendor Profile Edit</a>
                   </div>
                 </div>
             </li>
@@ -29,57 +23,114 @@
             <h6>
                 <li class="nav-item">
                   <div class="dropdown">
-                    <button class="bg-dark dropbtn"><i class="fa fa-home fa-2x"></i> &nbsp; Customer Dashboard</button>
+                    <button class="bg-dark dropbtn"><i class="fa fa-home fa-lg"></i> &nbsp;Vendor Dashboard</button>
                     <div class="dropdown-content">
-                      <a class="nav-link" routerLink="/inquirydata"><i class="fa fa-address-book"></i> Inquiry Data</a>
-                      <a class="nav-link" routerLink="/saleorderdata"><i class="fa fa-desktop"></i> Sale Order Data</a>
-                      <a class="nav-link" routerLink="/listofdelivery"><i class="fa fa-list"></i> List Of Delivery</a>
+                      <a class="nav-link" routerLink="/vendorquotation"><i class="fa fa-address-book"></i> Request for Quotation</a>
+                      <a class="nav-link" routerLink="/vendorpurchaseorder"><i class="fa fa-desktop"></i> Purchase Order</a>
+                      <a class="nav-link" routerLink="/vendorgoodsreceipt"><i class="fa fa-list"></i> Goods Receipt</a>
                     </div>
                   </div>
               </li>
             </h6>
+            
             <h6>
               <li class="nav-item">
                 <div class="dropdown">
-                  <button class="bg-dark dropbtn" ><i class="fa fa-cogs fa-2x"></i> &nbsp; Customer Finance Sheet</button>
+                  
+                  <button class="bg-dark dropbtn" ><i class="fa fa-cogs fa-lg"></i> &nbsp;Vendor Finance Sheet</button>
                   <div class="dropdown-content">
-                    <a class="nav-link" routerLink="/invoicedetails"><i class="fa fa-envelope"></i> Invoice Details</a>
-                    <a class="nav-link" routerLink="/paymentsaging"><i class="fa fa-paypal"></i> Payments and Aging</a>
-                    <a class="nav-link" routerLink="/creditdebitdemo"><i class="fa fa-credit-card"></i> Credit/Debit memo</a>
-                    <a class="nav-link" routerLink="/overallsalesdata"><i class="fa fa-sticky-note"></i> Overall Sales Data</a>
+                    <a class="nav-link" routerLink="/vendorinvoice"><i class="fa fa-envelope"></i> Invoice Details</a>
+                    <a class="nav-link" routerLink="/vendorpaymentaging"><i class="fa fa-paypal"></i> Payments and Aging</a>
+                    <a class="nav-link" routerLink="/vendorcredit"><i class="fa fa-credit-card"></i> Credit memo</a>
+                    <a class="nav-link" routerLink="/vendordebit"><i class="fa fa-sticky-note"></i> Debit Memo</a>
                   </div>
                 </div>
             </li>
           </h6>
-          <h6>
-            <li class="nav-item">
-              <div class="dropdown">
-                <button class="bg-dark dropbtn" ><i class="fa fa-upload fa-2x"></i> &nbsp; Master Data Upload</button>
-                <div class="dropdown-content">
-                  <a class="nav-link" routerLink="/masterdataupload"><i class="fa fa-upload"></i> Data Upload</a>
-                </div>
-              </div>
-          </li>
-        </h6>
           </ul>
         </div>
       </nav>
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-5">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <!-- <h1 class="h2">Dashboard</h1> -->
-          <breadcrumb #parent> 
+          <breadcrumb #parent>
             <ol class="breadcrumb">
               <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
                 <li *ngIf="!route.terminal" class="breadcrumb-item">
                   <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
                 </li>
-                <li style="font-size: large; font-weight: 600;" *ngIf="route.terminal" class="breadcrumb-item active"><a style="text-decoration: none;" href="" [routerLink]="[route.url]">{{ route.displayName }}</a></li>
+                <li style="font-size: large; font-weight: 600;" *ngIf="route.terminal" class="breadcrumb-item active"><a
+                    style="text-decoration: none;" href="" [routerLink]="[route.url]">{{ route.displayName }}</a></li>
               </ng-template>
             </ol>
           </breadcrumb>
         </div>
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-1 pb-2 mb-3 border-bottom">
+          <div *ngIf="header">
+            <div class="tbh" *ngIf="head">
+              <table datatable class="row-border hover" id="example">
+                <thead>
+                  <tr>
+                    <th>DOC_NUMBER</th>
+                    <th>CO_CODE</th>
+                    <th>DOC_CAT</th>
+                    <th> CREATED_ON </th>
+                    <th>CREATED_BY</th>
+                    <th>PURCH_ORG</th>
+                    <th>CURRENCY</th>
+                    <th>UPDATE_GRP</th>
+                    <th>VEND_NAME</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let suj of head" (click)="display(suj.DOC_NUMBER._text)">
+                    <td>{{suj.DOC_NUMBER._text}}</td>
+                    <td>{{suj.CO_CODE._text}}</td>
+                    <td>{{suj.DOC_CAT._text}}</td>
+                    <td>{{suj.CREATED_ON._text}}</td>
+                    <td>{{suj.CREATED_BY._text}}</td>
+                    <td>{{suj.PURCH_ORG._text}}</td>
+                    <td>{{suj.CURRENCY._text}}</td>
+                    <td>{{suj.UPDATE_GRP._text}}</td>
+                    <td>{{suj.VEND_NAME._text}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div *ngIf="!header">
+            <div class="tbh" *ngIf="item">
+              <table datatable class="row-border hover" id="example">
+                <thead>
+                  <tr>
+                    <th>DOC_NUMBER</th>
+                    <th>CHANGED_ON</th>
+                    <th>MATERIAL</th>
+                    <th>CO_CODE </th>
+                    <th>MAT_GRP</th>
+                    <th>GROS_VALUE</th>
+                    <th>UPDATE_GRP</th>
+                    <th>MAT_TYPE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let suj of filteredData">
+                    <td>{{suj.DOC_NUMBER._text}}</td>
+                    <td>{{suj.CHANGED_ON._text}}</td>
+                    <td>{{suj.MATERIAL._text}}</td>
+                    <td>{{suj.CO_CODE._text}}</td>
+                    <td>{{suj.MAT_GRP._text}}</td>
+                    <td>{{suj.GROS_VALUE._text}}</td>
+                    <td>{{suj.UPDATE_GRP._text}}</td>
+                    <td>{{suj.MAT_TYPE._text}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button class="back" (click)="back()">Back</button>
+          </div>
         </div>
       </main>
     </div>
